@@ -6,11 +6,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Tarek Ahmed</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const popup = document.getElementById("popup");
+            const closePopup = document.getElementById("popup-close");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                const formData = new FormData(form); // Get form data
+
+                fetch("https://formspree.io/f/mnnqkbjl", {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            // Show popup on successful form submission
+                            popup.style.display = "flex";
+                            form.reset(); // Reset the form after submission
+                        } else {
+                            alert("Oops, there was an issue submitting the form. Please try again.");
+                        }
+                    })
+                    .catch(error => {
+                        alert("Error: " + error.message);
+                    });
+            });
+
+            // Close the popup when the close button is clicked
+            closePopup.addEventListener("click", function () {
+                popup.style.display = "none";
+            });
+        });
+    </script>
+
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Tarek</a>
+        <a href="#" class="logo">Tarek Ahmed</a>
         <nav class="navigation">
+            <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -19,9 +56,9 @@
 
     <section class="main">
         <div>
-            <h2>Hello, I'm Tarek Ahmed<br><span>Backend Developer</span></h2>
-            <h3>Fresh computer engineering graduate, interested in software development/backend development. I am Looking for opportunities to leverage my strong programming skills, experience in the software development lifecycle, and dedication to continuous learning to contribute to developing cutting-edge software products.</h3>
-            <a href="#projects" class="main-btn">View my work</a>
+            <h2>Hi, my name is Tarek Ahmed<br><span>ASP.Net Web Developer</span></h2>
+            <h3>with a passion for building scalable and efficient web solutions using .NET, C#, and modern development tools. I am Looking for opportunities to leverage my strong programming skills, experience in the software development lifecycle, and dedication to continuous learning to contribute to developing cutting-edge software products.</h3>
+            <a href="#about" class="main-btn">FIND OUT MORE</a>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/tarek-ahmed-ba7423219/"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/Tarek-Ahmed-Helmy"><i class="fa-brands fa-github"></i></a>
@@ -31,40 +68,91 @@
         </div>
     </section>
 
+    <section class="cards" id="about">
+        <h2 class="title">About Me</h2>
+        <div class="content about-content">
+            <div class="about-text">
+                <p>
+                    Hi, I’m <strong>Tarek Ahmed</strong>! My journey into software development began with a simple curiosity
+                    about how technology shapes our world, and it quickly turned into a passion for building systems that
+                    make life easier. One of my proudest moments was creating a platform called <strong>SPACES</strong>,
+                    designed to connect people with co-working spaces effortlessly. It earned top recognition in my academic
+                    career and reinforced my belief in the power of innovative solutions.
+                </p>
+                <p>
+                    Over the years, I’ve worked on diverse projects, like an e-commerce system and a distributed platform,
+                    learning how to solve challenges with creativity and teamwork. I love digging into the "why" behind
+                    problems and turning ideas into practical, impactful results.
+                </p>
+                <p>
+                    When I’m not coding, I’m often exploring ways to grow—whether it’s learning something new, solving
+                    puzzles, or connecting with others. My goal is simple: to create meaningful solutions that not only work
+                    but leave a lasting impression.
+                </p>
+                <p>
+                    Let’s build something incredible together!
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section class="cards" id="services">
         <h2 class="title">Services</h2>
         <div class="content">
             <div class="card">
                 <div class="icon">
-                    <i class="fa-solid fa-code"></i>
+                    <i class="fa-solid fa-server"></i>
                 </div>
                 <div class="info">
-                    <h3>Coding</h3>
-                    <p>desc. for coding Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa exercitationem quas obcaecati voluptas</p>
+                    <h3>Backend Development</h3>
+                    <p>
+                        I design and develop efficient, scalable backend systems using .NET, C#, and Python to power robust
+                        web applications and APIs.
+                    </p>
                 </div>
             </div>
+    
             <div class="card">
                 <div class="icon">
-                    <i class="fa-solid fa-code"></i>
+                    <i class="fa-solid fa-network-wired"></i>
                 </div>
                 <div class="info">
-                    <h3>Coding</h3>
-                    <p>desc. for coding Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa exercitationem quas obcaecati
-                        voluptas</p>
+                    <h3>RESTful API Development</h3>
+                    <p>
+                        Building secure, fast, and reliable APIs to connect frontend applications with databases and ensure
+                        seamless data flow.
+                    </p>
                 </div>
             </div>
+    
             <div class="card">
                 <div class="icon">
-                    <i class="fa-solid fa-code"></i>
+                    <i class="fa-solid fa-database"></i>
                 </div>
                 <div class="info">
-                    <h3>Coding</h3>
-                    <p>desc. for coding Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa exercitationem quas obcaecati
-                        voluptas</p>
+                    <h3>Database Management</h3>
+                    <p>
+                        Expertise in designing and managing SQL Server and MS SQL databases for optimized performance and
+                        data integrity.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <div class="info">
+                    <h3>System Design & Architecture</h3>
+                    <p>
+                        Crafting well-structured, scalable architectures to support business needs and ensure long-term
+                        system reliability.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section class="projects" id="projects">
         <h2 class="title">Projects</h2>
@@ -123,13 +211,16 @@
     <section class="cards contact" id="contact">
         <h2 class="title">Let's work together</h2>
         <div class="content">
+            
+    
+            <!-- Contact Info -->
             <div class="card">
                 <div class="icon">
                     <i class="fa-solid fa-phone"></i>
                 </div>
                 <div class="info">
                     <h3>Phone</h3>
-                    <p>+20 01157422454</p>
+                    <p><a href="tel:+201157422454">+20 01157422454</a></p>
                 </div>
             </div>
             <div class="card">
@@ -138,19 +229,48 @@
                 </div>
                 <div class="info">
                     <h3>Email</h3>
-                    <p>tarek.ahmed35.01@gmail.com</p>
+                    <p><a href="mailto:tarek.ahmed35.01@gmail.com">tarek.ahmed35.01@gmail.com</a></p>
                 </div>
+            </div>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span id="popup-close" class="popup-close">&times;</span>
+                    <p>Your message has been sent successfully!</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="form-container">
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
+    
+
+
     <footer class="footer">
         <p class="footer-title">Copyrights @ <span>Tarek Ahmed</span></p>
         <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/tarek-ahmed-ba7423219/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Tarek-Ahmed-Helmy"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:tarek.ahmed35.01@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/01157422454"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </footer>
 </body>
