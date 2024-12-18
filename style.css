@@ -308,14 +308,12 @@ section {
 
 #about {
     background-color: #f9f9f9;
-    /* Light background for contrast */
     padding: 60px 20px;
     text-align: center;
 }
 
 .about-text {
     max-width: 800px;
-    /* Ensures readability */
     text-align: justify;
     line-height: 1.8;
     font-size: 1.1rem;
@@ -329,21 +327,17 @@ section {
 
 .about-text strong {
     color: #201E43;
-    /* Highlight important names/words */
     font-weight: bold;
 }
 
 .about-text p:last-child {
     font-style: italic;
-    /* Adds emphasis to the closing line */
 }
 
-/* Form Group Styling */
 .form-container form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    /* Space between form elements */
 }
 
 .form-container input,
@@ -374,26 +368,8 @@ section {
     outline: none;
 }
 
-/* .btn {
-    display: inline-block;
-    background-color: #0078FF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-} */
-
-/* .btn:hover {
-    background-color: #005bb5;
-} */
-
-/* Popup Styles */
-.popup {
+#popup {
     display: none;
-    /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
@@ -402,24 +378,23 @@ section {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
-.popup-content {
-    background-color: white;
+#popup-content {
+    background: white;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
+    position: relative;
     text-align: center;
-    max-width: 400px;
-    width: 100%;
 }
 
-.popup-close {
+#close-popup {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
-    cursor: pointer;
+    font-weight: bold;
+    color: black;
 }
 
 @media (max-width:1023px) {
@@ -456,7 +431,6 @@ section {
 @media (max-width: 768px) {
     section {
         padding: 60px 20px;
-        /* Smaller padding for tablets and phones */
     }
 
     .contact .content {
