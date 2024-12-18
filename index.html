@@ -9,40 +9,38 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.querySelector("form");
-            const popup = document.getElementById("popup");
-            const closePopup = document.getElementById("popup-close");
-
+            const popup = document.querySelector("#popup");
+            const closePopup = document.querySelector("#close-popup");
             form.addEventListener("submit", function (event) {
-                event.preventDefault(); // Prevent form submission
+                event.preventDefault();
 
-                const formData = new FormData(form); // Get form data
-
+                const formData = new FormData(form);
                 fetch("https://formspree.io/f/mnnqkbjl", {
                     method: "POST",
-                    body: formData
-                })
-                    .then(response => {
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }).then(response => {
                         if (response.ok) {
-                            // Show popup on successful form submission
                             popup.style.display = "flex";
-                            form.reset(); // Reset the form after submission
+                            form.reset();
                         } else {
                             alert("Oops, there was an issue submitting the form. Please try again.");
                         }
-                    })
-                    .catch(error => {
-                        alert("Error: " + error.message);
-                    });
+                })
+                .catch(error => {
+                    alert("Error: " + error.message);
+                });
             });
 
-            // Close the popup when the close button is clicked
             closePopup.addEventListener("click", function () {
                 popup.style.display = "none";
             });
         });
     </script>
-
 </head>
+
 <body>
     <header>
         <a href="#" class="logo">Tarek Ahmed</a>
@@ -153,7 +151,6 @@
         </div>
     </section>
 
-
     <section class="projects" id="projects">
         <h2 class="title">Projects</h2>
         <div class="content">
@@ -211,9 +208,6 @@
     <section class="cards contact" id="contact">
         <h2 class="title">Let's work together</h2>
         <div class="content">
-            
-    
-            <!-- Contact Info -->
             <div class="card">
                 <div class="icon">
                     <i class="fa-solid fa-phone"></i>
@@ -223,6 +217,7 @@
                     <p><a href="tel:+201157422454">+20 01157422454</a></p>
                 </div>
             </div>
+
             <div class="card">
                 <div class="icon">
                     <i class="fa-solid fa-envelope"></i>
@@ -233,14 +228,13 @@
                 </div>
             </div>
 
-            <div id="popup" class="popup">
-                <div class="popup-content">
-                    <span id="popup-close" class="popup-close">&times;</span>
+            <div id="popup" style="display: none;">
+                <div id="popup-content">
+                    <span id="close-popup" style="cursor: pointer;">&times;</span>
                     <p>Your message has been sent successfully!</p>
                 </div>
             </div>
 
-            <!-- Contact Form -->
             <div class="form-container">
                 <form method="POST">
                     <div class="form-group">
@@ -260,9 +254,6 @@
             </div>
         </div>
     </section>
-
-    
-
 
     <footer class="footer">
         <p class="footer-title">Copyrights @ <span>Tarek Ahmed</span></p>
